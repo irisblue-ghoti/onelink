@@ -1,0 +1,27 @@
+server:
+  port: 8083
+  host: "0.0.0.0"
+
+database:
+  host: "${DB_HOST:-localhost}"
+  port: 5432
+  user: "postgres"
+  password: "postgres"
+  dbname: "nfc_card"
+  sslmode: "disable"
+
+redis:
+  host: "${REDIS_HOST:-localhost}"
+  port: 6379
+  password: ""
+  db: 0
+
+kafka:
+  brokers: ["${KAFKA_HOST:-localhost}:9092"]
+  group_id: "nfc-service"
+  topics:
+    example_topic: "example-topic"
+
+log:
+  level: "debug"
+  file: "./logs/nfc-service.log"

@@ -1,0 +1,55 @@
+# Kafka配置示例
+# 可在各服务的配置文件中参考此配置结构
+
+kafka:
+  # Kafka服务器地址
+  brokers: 
+    - "kafka:9092"
+  
+  # 消费者组ID (需根据服务名称修改)
+  consumerGroup: "your-service-group"
+  
+  # 消费的主题列表 (根据需要选择需要订阅的主题)
+  consumerTopics:
+    - "merchant-events"
+    - "card-events"
+    - "video-events"
+    - "publish-events"
+    - "tasks-merchant-service"  # 任务队列 - 格式: tasks-{服务名称}
+    - "retries-merchant-service" # 重试队列 - 格式: retries-{服务名称}
+  
+  # 生产者主题配置
+  producerTopics:
+    # 商户相关事件
+    merchantEvents: "merchant-events"
+    
+    # NFC卡相关事件
+    cardEvents: "card-events"
+    
+    # 视频内容相关事件
+    videoEvents: "video-events"
+    
+    # 发布任务相关事件
+    publishEvents: "publish-events"
+    
+    # 统计数据相关事件
+    statsEvents: "stats-events"
+    
+    # 任务相关主题
+    tasks: "tasks-${service.name}"  # 动态根据服务名称生成任务主题
+    retries: "retries-${service.name}" # 动态根据服务名称生成重试主题
+    deadLetter: "dead-letter" # 死信队列（所有服务共享）
+    
+  # 任务处理配置
+  taskProcessing:
+    # 最大重试次数
+    maxRetries: 3
+    
+    # 重试扫描间隔 (单位:分钟)
+    retryIntervalMinutes: 5
+    
+    # 是否启用死信队列
+    enableDeadLetter: true
+    
+    # 任务执行超时时间 (单位:秒)
+    taskTimeoutSeconds: 300 

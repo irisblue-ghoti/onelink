@@ -1,0 +1,17 @@
+server:
+  port: 3002
+
+database:
+  host: postgres
+  port: 5432
+  user: postgres
+  password: postgres
+  name: nfc_card
+
+auth:
+  secret_key: "your-secret-key-here"
+
+kafka:
+  brokers:
+    - kafka:9092
+  topic: merchant-events 

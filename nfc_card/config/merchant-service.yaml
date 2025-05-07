@@ -1,0 +1,33 @@
+server:
+  port: 8082
+  
+database:
+  host: postgres
+  port: "5432"
+  user: postgres
+  password: postgres
+  dbname: nfc_card
+  sslmode: disable
+    
+redis:
+  addr: redis:6379
+  password: ""
+  db: 0
+  
+log:
+  level: debug
+  output: stdout
+
+# Nacos服务注册与发现配置
+nacos:
+  server_addr: "nacos:8848"              # Nacos服务地址
+  namespace_id: "public"                 # 命名空间ID
+  group: "DEFAULT_GROUP"                 # 分组
+  service_name: "merchant-service"       # 服务名称
+  enable: true                           # 是否启用服务发现
+  weight: 10                             # 服务权重
+  metadata:                              # 服务元数据
+    version: "1.0.0"
+    env: "dev"
+  log_dir: "/tmp/nacos/log"              # Nacos日志目录
+  cache_dir: "/tmp/nacos/cache"          # Nacos缓存目录

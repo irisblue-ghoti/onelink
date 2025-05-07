@@ -1,0 +1,57 @@
+# 编译后的二进制文件
+/bin/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# 测试文件
+*.test
+*.out
+
+# 依赖目录
+/vendor/
+
+# Go特定的缓存和临时文件
+/.idea/
+/.vscode/
+*.iml
+.DS_Store
+
+# 日志文件
+*.log
+/logs/
+
+# 配置文件（可能包含敏感信息）
+.env
+*.env
+*.env.*
+!.env.example
+
+# 临时文件
+/tmp/
+/temp/
+
+# Node.js依赖（前端部分）
+/node_modules/
+/frontend/.next/
+/frontend/build/
+/frontend/dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 数据库文件
+*.db
+*.sqlite
+*.sqlite3
+
+# 证书和密钥
+*.pem
+*.key
+*.crt
+
+# 本地配置和覆盖
+override.yaml
+local.yaml 

@@ -1,0 +1,30 @@
+# 日志配置
+logging:
+  # 日志级别: debug, info, warn, error, fatal
+  level: "info"
+  # 服务名称
+  service_name: "${SERVICE_NAME}"
+  # 日志文件路径
+  file_path: "logs/${SERVICE_NAME}.log"
+  # 是否输出到控制台
+  console_output: true
+  # 是否使用JSON格式
+  json_format: true
+  # 是否包含调用文件和行号
+  report_caller: true
+  # Elasticsearch配置
+  elasticsearch:
+    # 是否启用Elasticsearch日志收集
+    enabled: ${ELASTICSEARCH_ENABLED:-false}
+    # Elasticsearch地址
+    url: "${ELASTICSEARCH_URL:-http://elasticsearch:9200}"
+    # 索引名前缀
+    index_prefix: "logs-${SERVICE_NAME}"
+    # Elasticsearch用户名
+    username: "${ELASTICSEARCH_USERNAME:-}"
+    # Elasticsearch密码
+    password: "${ELASTICSEARCH_PASSWORD:-}"
+    # 批量发送大小
+    batch_size: 100
+    # 刷新间隔（秒）
+    flush_interval_seconds: 5 

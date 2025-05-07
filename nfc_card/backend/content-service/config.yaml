@@ -1,0 +1,21 @@
+server:
+  port: 3001
+
+database:
+  host: postgres
+  port: 5432
+  user: postgres
+  password: postgres
+  name: nfc_card
+
+storage:
+  endpoint: minio:9000
+  bucket_name: videos
+  access_key: minioadmin
+  secret_key: minioadmin
+  use_ssl: false
+
+kafka:
+  brokers:
+    - kafka:9092
+  topic: video-events 

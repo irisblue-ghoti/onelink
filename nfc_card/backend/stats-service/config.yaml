@@ -1,0 +1,35 @@
+server:
+  port: "8083"
+  readTimeoutSeconds: 10
+  writeTimeoutSeconds: 10
+  idleTimeoutSeconds: 60
+
+database:
+  host: "localhost"
+  port: "5432"
+  user: "postgres"
+  password: "postgres"
+  dbname: "nfc_card"
+  sslmode: "disable"
+
+kafka:
+  brokers: ["kafka:9092"]
+  consumerGroup: "stats-service"
+  consumerTopics: 
+    - "publish-events"
+    - "video-events"
+    - "nfc-card-events"
+
+platforms:
+  douyin:
+    clientKey: "your_douyin_client_key"
+    clientSecret: "your_douyin_client_secret"
+  kuaishou:
+    appId: "your_kuaishou_app_id"
+    appSecret: "your_kuaishou_app_secret"
+  xiaohongshu:
+    appId: "your_xiaohongshu_app_id"
+    appSecret: "your_xiaohongshu_app_secret"
+  wechat:
+    appId: "your_wechat_app_id"
+    appSecret: "your_wechat_app_secret" 

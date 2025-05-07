@@ -1,0 +1,6 @@
+routes:
+  - id: \n    uri: /api/v1/auth/*
+    upstream:
+      type: roundrobin
+      nodes:
+        \merchant-service:8082\: 1
